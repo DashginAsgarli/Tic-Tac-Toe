@@ -25,3 +25,18 @@ Download or clone the repository:
    ```bash
    git clone https://github.com/DashginAsgarli/Tic-Tac-Toe.git
 ```
+---
+
+## 🌐 Live Demo (Deploy Link)
+
+You can play the game online using the link below:
+
+🔗 **Live Demo:** https://astounding-quokka-87abc8.netlify.app/
+
+---
+
+## 🖼 Game Screenshot
+
+<img width="600" height="250" alt="image" src="https://github.com/user-attachments/assets/6079b473-6c5f-42f1-9816-1e64ed89c39f" />
+
+
