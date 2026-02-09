@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Menu, X as CloseIcon, Sun, Moon } from 'lucide-react';
 import Board from "./components/Board";
 import ScoreBoard from "./components/ScoreBoard";
-import Notification from "./components/Notification";
 import Settings from "./components/Settings";
 import History from "./components/History";
 
@@ -12,7 +11,6 @@ function App() {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [currentPlayer, setCurrentPlayer] = useState("X");
   const [winner, setWinner] = useState(null);
-  const [notification, setNotification] = useState(null);
   const [gameMode, setMode] = useState('ai');
   const [config, setConfig] = useState({ difficulty: 'Hard' });
   const [history, setHistory] = useState([]);
@@ -66,7 +64,6 @@ function App() {
     if (result) {
       setWinner(result);
       setHistory(prev => [{ winner: result.winner, id: Date.now() }, ...prev]);
-      setNotification({ message: result.winner === 'Draw' ? "HEÇ-HEÇƏ!" : `QALİB: ${result.winner}` });
     } else {
       setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
     }
@@ -101,10 +98,8 @@ function App() {
 
   return (
     <div className={`h-screen flex flex-col overflow-hidden font-sans transition-colors duration-500 ${isDarkMode ? 'bg-[#050505] text-white' : 'bg-[#f8f9fa] text-slate-900'}`}>
-      <Notification message={notification?.message} onClose={() => setNotification(null)} />
-
       <header className={`w-full py-4 border-b flex justify-between items-center px-6 z-50 shrink-0 transition-colors ${isDarkMode ? 'bg-[#050505] border-white/5' : 'bg-white border-slate-200 shadow-sm'}`}>
-        <h1 className={`text-lg font-black tracking-[0.3em] ${isDarkMode ? 'opacity-80' : 'text-slate-800'}`}>TIC_TAC_TOE</h1>
+        <h1 className={`text-lg font-black tracking-[0.3em] ${isDarkMode ? 'opacity-80' : 'text-slate-800'}`}>TIC TAC TOE</h1>
         <button onClick={() => setIsMenuOpen(true)} className={`p-2 rounded-lg border transition-all ${isDarkMode ? 'hover:bg-white/5 border-white/5' : 'hover:bg-slate-50 border-slate-200'}`}>
           <Menu size={20} />
         </button>
